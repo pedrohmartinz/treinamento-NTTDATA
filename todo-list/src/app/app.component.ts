@@ -6,21 +6,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  title: string = 'ToDo-List';
   tasks: { name: string, priority: number }[] = [];
   newTask: string = '';
   newTaskPriority: number = 1;
 
   ngOnInit() {
-    // Ordena as tarefas inicialmente
+  
     this.tasks.sort((a, b) => a.priority - b.priority);
   }
 
   addTask() {
     if (this.newTask.trim() !== '') {
       this.tasks.push({ name: this.newTask.trim(), priority: this.newTaskPriority });
-      this.tasks.sort((a, b) => a.priority - b.priority); // Ordena as tarefas pela prioridade
+      this.tasks.sort((a, b) => a.priority - b.priority); 
       this.newTask = '';
-      this.newTaskPriority = 1; // Reset priority to 1 after adding task
+      this.newTaskPriority = 3; 
     }
   }
 
