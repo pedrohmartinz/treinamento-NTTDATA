@@ -15,7 +15,7 @@ export class SearchPageComponent {
   searchMovies(): void {
     this.movieService.searchMovies(this.searchTerm)
       .subscribe((response: any) => {
-        console.log(response); // Verifique os dados recebidos
+        console.log(response); 
         if (response && response.Search) {
           this.searchResults = response.Search;
         } else {

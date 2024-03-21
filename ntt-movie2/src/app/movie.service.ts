@@ -9,6 +9,6 @@ export class MovieService {
   constructor(private http: HttpClient) {}
 
   searchMovies(term: string): Observable<any[]> {
-    return this.http.get<any[]>(`http://www.omdbapi.com/?s=${term}&apikey=7aa8934b`);
+    return this.http.get<any[]>(`https://www.omdbapi.com/?s=${term}&apikey=7aa8934b`);
   }
 }
