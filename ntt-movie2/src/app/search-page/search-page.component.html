@@ -1,12 +1,7 @@
-<div>
-    <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar filme...">
-    <button (click)="searchMovies()">Buscar</button>
-  </div>
-  
-  <div *ngIf="movies && movies.length">
-    <div *ngFor="let movie of movies">
-      <!-- Exiba os detalhes do filme aqui -->
-      <p>{{ movie.Title }}</p>
+<div class="search-container">
+    <div class="input-container">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Buscar filmes...">
+      <button (click)="searchMovies()">Buscar</button>
     </div>
   </div>
-  
+<app-movie-list [movies]="searchResults"></app-movie-list>

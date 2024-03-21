@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-search-page',
@@ -7,15 +7,20 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./search-page.component.css']
 })
 export class SearchPageComponent {
-  movies: any[] = [];
   searchTerm: string = '';
+  searchResults: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private movieService: MovieService) {}
 
   searchMovies(): void {
-    this.http.get<any>(`http://www.omdbapi.com/?s=${this.searchTerm}&apikey=7aa8934b`)
-      .subscribe(response => {
-        this.movies = response.Search;
+    this.movieService.searchMovies(this.searchTerm)
+      .subscribe((response: any) => {
+        console.log(response); // Verifique os dados recebidos
+        if (response && response.Search) {
+          this.searchResults = response.Search;
+        } else {
+          this.searchResults = [];
+        }
       });
   }
 }

@@ -1,1 +1,7 @@
-<p>movie-list works!</p>
+<div class="movie-list">
+    <div class="movie-card"  *ngFor="let movie of movies">
+      <h3>{{ movie.Title }}</h3>
+      <img [src]="movie.Poster" alt="{{ movie.Title }}">
+      <p>Ano: {{ movie.Year }}</p>
+    </div>
+  </div>
